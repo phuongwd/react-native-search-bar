@@ -162,6 +162,7 @@ RCT_EXPORT_METHOD(unFocus:(nonnull NSNumber *)reactTag)
          
          if ([searchBar isKindOfClass:[RNSearchBar class]]) {
              [searchBar resignFirstResponder];
+             [(UIButton *)[searchBar valueForKey:@"_cancelButton"] setEnabled:YES];
          } else {
              RCTLogError(@"Cannot unFocus: %@ (tag #%@) is not RNSearchBar", searchBar, reactTag);
          }
