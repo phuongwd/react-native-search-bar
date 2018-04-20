@@ -47,6 +47,7 @@ class SearchBar extends React.PureComponent {
     editable: PropTypes.bool,
     returnKeyType: PropTypes.string,
     showsCancelButtonWhileEditing: PropTypes.bool,
+    showsCancelButtonWhileUnFocus: PropTypes.bool,
   }
 
   static defaultProps = {
@@ -70,6 +71,7 @@ class SearchBar extends React.PureComponent {
     autoCorrect: false,
     spellCheck: false,
     showsCancelButtonWhileEditing: true,
+    showsCancelButtonWhileUnFocus: true,
     onChange: () => null,
     onChangeText: () => null,
     onFocus: () => null,
@@ -105,7 +107,7 @@ class SearchBar extends React.PureComponent {
   }
 
   onBlur = () => {
-    if (this.props.showsCancelButtonWhileEditing) {
+    if (this.props.showsCancelButtonWhileEditing && !this.props.showsCancelButtonWhileUnFocus) {
       NativeModules.RNSearchBarManager.toggleCancelButton(findNodeHandle(this), false)
     }
 

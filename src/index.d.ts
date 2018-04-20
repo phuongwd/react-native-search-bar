@@ -59,6 +59,14 @@ interface Props {
    * Default is true
    */
   showsCancelButtonWhileEditing?: boolean
+  
+  /**
+   * Only shows the cancel button while the search bar has unfocus
+   * Like AppStore
+   * 
+   * Default is true
+   */
+  showsCancelButtonWhileUnFocus?: boolean
 
   /**
    * Indicates whether the Return key is automatically enabled when the user is entering text.
